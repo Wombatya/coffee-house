@@ -528,3 +528,30 @@ footer {
   line-height: 24px;
   color: #e1d4c9;
 }
+
+.cont-link {
+    text-decoration: none;
+    margin-left: 0;
+    position: relative;
+}
+
+.cont-icon {
+    margin-right: 4px;
+}
+
+.cont-link::after {
+    position: absolute;
+    content: "";
+    left: 50%;
+    bottom: -5px;
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #E1D4C9;
+    transform: translateX(-50%);
+    transition: 0.3s;
+  }
+  
+  .cont-link:hover:after {
+    width: 100%;
+  }
