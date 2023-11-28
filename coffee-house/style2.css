@@ -213,14 +213,62 @@ nav {
   cursor: pointer;
 }
 
+.menu-choice-item:nth-child(1) .menu-choice-item-pic {
+  background: url(img/coffee-1.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.menu-choice-item:nth-child(2) .menu-choice-item-pic {
+  background: url(img/coffee-2.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.menu-choice-item:nth-child(3) .menu-choice-item-pic {
+  background: url(img/coffee-3.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.menu-choice-item:nth-child(4) .menu-choice-item-pic {
+  background: url(img/coffee-4.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.menu-choice-item:nth-child(5) .menu-choice-item-pic {
+  background: url(img/coffee-5.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.menu-choice-item:nth-child(6) .menu-choice-item-pic {
+  background: url(img/coffee-6.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.menu-choice-item:nth-child(7) .menu-choice-item-pic {
+  background: url(img/coffee-7.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.menu-choice-item:nth-child(8) .menu-choice-item-pic {
+  background: url(img/coffee-8.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
 .menu-choice-item-pic {
   width: 100%;
+  height: 310px;
   border-radius: 40px;
-  object-fit: none;
 }
 
 .menu-choice-item:hover .menu-choice-item-pic{
-    object-fit: cover;
+    background-size: 100%;
 }
 
 .menu-choice-item-descriprion {
