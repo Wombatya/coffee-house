@@ -210,6 +210,7 @@ nav {
   border-radius: 40px;
   border: 1px solid #c1b6ad;
   position: relative;
+  cursor: pointer;
 }
 
 .menu-choice-item-pic {
@@ -218,7 +219,7 @@ nav {
   object-fit: none;
 }
 
-.menu-choice-item-pic:hover {
+.menu-choice-item:hover .menu-choice-item-pic{
     object-fit: cover;
 }
 
