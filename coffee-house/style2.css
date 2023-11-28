@@ -144,7 +144,7 @@ nav {
   padding: 8px 16px 8px 8px;
   position: relative;
   height: 46px;
-  border: 1px solid #C1B6AD;
+  border: 1px solid #c1b6ad;
   background-color: #e1d4c9;
   cursor: pointer;
   transition: 2s;
@@ -166,7 +166,7 @@ nav {
   position: absolute;
   top: 7px;
   left: 6px;
-  color: #C1B6AD;
+  color: #c1b6ad;
 }
 
 .tab-item-text {
@@ -178,21 +178,80 @@ nav {
   left: 46px;
 }
 
+.tab-item.active {
+  cursor: default;
+  background-color: #665f55;
+  color: #e1d4c9;
+}
+
 .tab-item:hover {
-    background-color: #665F55;
+  background-color: #665f55;
 }
 
 .tab-item:hover .tab-item-text {
-    color: #E1D4C9;
+  color: #e1d4c9;
 }
 
 .tab-item:hover .tab-item-icon {
-    fill: #E1D4C9;
+  fill: #e1d4c9;
+}
+
+.menu-choice-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.menu-choice-item {
+  width: 310px;
+  height: 506px;
+  margin-bottom: 40px;
+  border-radius: 40px;
+  border: 1px solid #c1b6ad;
+  position: relative;
+}
+
+.menu-choice-item-pic {
+  width: 100%;
+  border-radius: 40px;
+  object-fit: none;
+}
+
+.menu-choice-item-pic:hover {
+    object-fit: cover;
+}
+
+.menu-choice-item-descriprion {
+  margin: 16px 20px 20px;
+}
+
+.menu-choice-item-heading {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.menu-choice-item-text {
+  margin: 12px 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.menu-choice-item-price {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  position: absolute;
+  bottom: 20px;
 }
 
 footer {
   padding: 0 40px;
-  margin-top: 100px;
+  margin-top: 55px;
   display: flex;
   justify-content: center;
 }
