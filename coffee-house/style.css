@@ -6,7 +6,7 @@ html {
 body {
   margin: 0 auto;
   box-sizing: border-box;
-  background-color: #403f3dcc;
+  background-color: #e1d4c9;
   display: flex;
   justify-content: center;
   overflow-x: hidden;
@@ -530,28 +530,28 @@ footer {
 }
 
 .cont-link {
-    text-decoration: none;
-    margin-left: 0;
-    position: relative;
+  text-decoration: none;
+  margin-left: 0;
+  position: relative;
 }
 
 .cont-icon {
-    margin-right: 4px;
+  margin-right: 4px;
 }
 
 .cont-link::after {
-    position: absolute;
-    content: "";
-    left: 50%;
-    bottom: -5px;
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #E1D4C9;
-    transform: translateX(-50%);
-    transition: 0.3s;
-  }
-  
-  .cont-link:hover:after {
-    width: 100%;
-  }
+  position: absolute;
+  content: "";
+  left: 50%;
+  bottom: -5px;
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #e1d4c9;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+
+.cont-link:hover:after {
+  width: 100%;
+}
