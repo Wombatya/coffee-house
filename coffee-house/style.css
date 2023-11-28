@@ -325,24 +325,44 @@ h1 {
   width: 100%;
   height: 590px;
   border-radius: 20px;
-  object-fit: none;
-  transition: 2s;
 }
 
 .about-pic-small {
   width: 100%;
   height: 430px;
   border-radius: 20px;
-  object-fit: none;
-  transition: 2s;
 }
 
-.about-pic-big:hover {
-  object-fit: cover;
+.column-item:nth-child(1) .about-pic-big {
+  background: url(img/about-1.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
 }
 
-.about-pic-small:hover {
-  object-fit: cover;
+.column-item:nth-child(2) .about-pic-small {
+  background: url(img/about-2.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.column-item:nth-child(1) .about-pic-small {
+  background: url(img/about-3.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.column-item:nth-child(2) .about-pic-big {
+  background: url(img/about-4.jpg) no-repeat 50% 50%;
+  background-size: 110%;
+  transition: 1s background-size;
+}
+
+.column-item:hover .about-pic-big {
+  background-size: 100%;
+}
+
+.column-item:hover .about-pic-small {
+  background-size: 100%;
 }
 
 .app {
