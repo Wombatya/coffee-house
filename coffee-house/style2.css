@@ -54,7 +54,7 @@ nav {
   font-size: 16px;
   color: #403f3d;
   text-decoration: none;
-  cursor: default;
+  cursor: pointer;
   position: relative;
 }
 
