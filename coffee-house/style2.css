@@ -125,6 +125,7 @@ nav {
   font-weight: 600;
   line-height: 75px;
   text-align: center;
+  color: #403F3D;
 }
 
 .accent {
@@ -147,7 +148,9 @@ nav {
   border: 1px solid #c1b6ad;
   background-color: #e1d4c9;
   cursor: pointer;
+  font-family: "Inter", sans-serif;
   transition: 2s;
+  color: #403F3D;
 }
 
 .tab1 {
@@ -176,6 +179,7 @@ nav {
   position: absolute;
   top: 10px;
   left: 46px;
+  font-family: "Inter", sans-serif;
 }
 
 .tab-item.active {
@@ -280,6 +284,7 @@ nav {
   font-size: 24px;
   font-weight: 600;
   line-height: 30px;
+  color: #403F3D;
 }
 
 .menu-choice-item-text {
@@ -287,6 +292,7 @@ nav {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+  color: #403F3D;
 }
 
 .menu-choice-item-price {
@@ -296,6 +302,7 @@ nav {
   line-height: 30px;
   position: absolute;
   bottom: 20px;
+  color: #403F3D;
 }
 
 footer {
@@ -327,6 +334,7 @@ footer {
   font-size: 60px;
   font-weight: 600;
   line-height: 75px;
+  color: #E1D4C9;
 }
 
 .socials {
