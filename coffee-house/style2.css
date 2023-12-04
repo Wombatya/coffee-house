@@ -606,6 +606,20 @@ footer {
   }
 }
 
+@media screen and (max-width: 750px) {
+  .menu-choice-wrapper {
+    justify-content: center;
+  }
+
+  .footer-wrapper {
+    padding: 60px 16px;
+  }
+
+  .footer-motto-socials {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 380px) {
   html {
     width: 100%;

@@ -625,7 +625,6 @@ footer {
 
   .enjoy-info-button:hover .button-text::after {
     opacity: 100%;
-    left: px;
   }
 
   .slider-arrow:hover {
@@ -799,7 +798,6 @@ footer {
 
   .enjoy-info-button .button-text::after {
     opacity: 100%;
-    left: px;
   }
 
   .button-text {
