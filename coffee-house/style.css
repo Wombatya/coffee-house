@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
   overflow-anchor: none;
+  overflow-x: hidden;
 }
 
 body {
@@ -436,7 +437,7 @@ h1 {
 
 .app-button {
   width: 200px;
-  height: 64px px;
+  height: 64px;
   border-radius: 100px;
   padding: 10px 20px;
   border: 1px solid #665f55;
@@ -608,6 +609,64 @@ footer {
   width: 100%;
 }
 
+@media screen and (max-width: 1200px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .about-pics {
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+    margin-top: 40px;
+    height: auto;
+  }
+
+  .about-pic-small {
+    display: none;
+  }
+
+  .column-item:nth-child(1) .about-pic-big {
+    background-size: 105%;
+  }
+
+  .column-item:nth-child(2) .about-pic-big {
+    background-size: 105%;
+  }
+
+  .app-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-info {
+    width: 100%;
+  }
+
+  .phones {
+    margin-top: 100px;
+  }
+
+  .footer-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 60px;
+    background-color: #665f55;
+    border-radius: 40px;
+  }
+
+  .footer-contacts {
+    margin-top: 100px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   html {
     width: 100%;
@@ -618,6 +677,11 @@ footer {
   body {
     width: 100%;
     max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 
   .burger {
@@ -676,6 +740,10 @@ footer {
     width: 100%;
   }
 
+  .slider-item-description {
+    margin-top: 17px;
+  }
+
   .about-pics {
     width: 100%;
     margin-top: 0;
@@ -699,5 +767,32 @@ footer {
 
   .column-item:nth-child(2) .about-pic-big {
     background-size: 105%;
+  }
+
+  .app-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-info {
+    width: 100%;
+  }
+
+  .phones {
+    margin-top: 100px;
+  }
+
+  .footer-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 60px;
+    background-color: #665f55;
+    border-radius: 40px;
+  }
+
+  .footer-contacts {
+    margin-top: 100px;
   }
 }
