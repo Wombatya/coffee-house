@@ -933,7 +933,7 @@ footer {
   .enjoy {
     max-width: 100%;
     padding: 0 16px;
-}
+  }
 
   .enjoy-wrapper {
     padding: 60px 16px;
@@ -951,5 +951,18 @@ footer {
 
   .enjoy-info-text {
     margin: 40px 0;
-}
+  }
+
+  .favorite {
+    padding: 0 16px;
+  }
+
+  .favorite-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .slider-arrow {
+    display: none;
+  }
 }
