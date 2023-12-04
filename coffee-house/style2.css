@@ -620,6 +620,28 @@ footer {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .menu-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .footer-motto-socials {
+    width: 100%;
+    height: 180px;
+  }
+
+  .footer-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .footer-contacts {
+    margin-top: 40px;
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 380px) {
   html {
     width: 100%;
