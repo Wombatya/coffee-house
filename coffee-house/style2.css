@@ -87,9 +87,9 @@ nav {
   transition: 0.3s;
 }
 
-.nav-link:hover:after {
+/* .nav-link:hover:after {
   width: 100%;
-}
+} */
 
 .header-menu-link {
   width: 72px;
@@ -210,17 +210,17 @@ nav {
   color: #e1d4c9;
 }
 
-.tab-item:hover {
+/* .tab-item:hover {
   background-color: #665f55;
-}
+} */
 
-.tab-item:hover .tab-item-text {
+/* .tab-item:hover .tab-item-text {
   color: #e1d4c9;
-}
+} */
 
-.tab-item:hover .tab-item-icon {
+/* .tab-item:hover .tab-item-icon {
   fill: #e1d4c9;
-}
+} */
 
 .menu-choice-wrapper {
   width: 100%;
@@ -293,9 +293,9 @@ nav {
   border-radius: 40px;
 }
 
-.menu-choice-item:hover .menu-choice-item-pic {
+/* .menu-choice-item:hover .menu-choice-item-pic {
   background-size: 100%;
-}
+} */
 
 .menu-choice-item-descriprion {
   margin: 16px 20px 20px;
@@ -375,13 +375,13 @@ footer {
   transition-duration: 2s;
 }
 
-.socials-logo:hover {
+/* .socials-logo:hover {
   color: #e1d4c9;
-}
+} */
 
-.socials-logo:hover .socials-logo-item {
+/* .socials-logo:hover .socials-logo-item {
   stroke: #403f3d;
-}
+} */
 
 .footer-contacts {
   width: 530px;
@@ -442,8 +442,57 @@ footer {
   transition: 0.3s;
 }
 
-.cont-link:hover:after {
+/* .cont-link:hover:after {
   width: 100%;
+} */
+
+@media (pointer: fine) and (hover: hover) {
+  .nav-link:hover:after {
+    width: 100%;
+  }
+
+  .tab-item:hover {
+    background-color: #665f55;
+  }
+
+  .tab-item:hover .tab-item-text {
+    color: #e1d4c9;
+  }
+
+  .tab-item:hover .tab-item-icon {
+    fill: #e1d4c9;
+  }
+
+  .menu-choice-item:hover .menu-choice-item-pic {
+    background-size: 100%;
+  }
+
+  .socials-logo:hover {
+    color: #e1d4c9;
+  }
+
+  .socials-logo:hover .socials-logo-item {
+    stroke: #403f3d;
+  }
+
+  .cont-link:hover:after {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .footer-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 60px;
+    background-color: #665f55;
+    border-radius: 40px;
+  }
+
+  .footer-contacts {
+    margin-top: 100px;
+  }
 }
 
 @media screen and (max-width: 768px) {
