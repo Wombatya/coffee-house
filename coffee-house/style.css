@@ -129,6 +129,7 @@ nav {
 }
 
 .enjoy {
+  max-width: 100%;
   padding: 0 40px;
   display: flex;
   justify-content: center;
@@ -136,7 +137,7 @@ nav {
 
 .enjoy-wrapper {
   background-image: url(img/img-hero.jpg);
-  background-size: auto;
+  background-size: cover;
   padding: 100px;
   border-radius: 40px;
   width: 100%;
@@ -665,5 +666,38 @@ footer {
     background-color: #e1d4c9;
     transform: translateX(100%);
     transition: transform 0.5s;
+  }
+
+  .enjoy-wrapper {
+    background-image: url(img/img-hero.jpg);
+    background-position: bottom;
+    padding: 100px 60px;
+    border-radius: 40px;
+    width: 100%;
+  }
+
+  .about-pics {
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+    margin-top: 40px;
+    height: auto;
+  }
+
+  .about-pic-small {
+    display: none;
+  }
+
+  .column-item:nth-child(1) .about-pic-big {
+    background-size: 105%;
+  }
+
+  .column-item:nth-child(2) .about-pic-big {
+    background-size: 105%;
   }
 }
