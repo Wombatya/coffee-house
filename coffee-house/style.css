@@ -1002,4 +1002,27 @@ footer {
     margin-top: 40px;
     width: 348px;
   }
+
+  footer {
+    padding: 0 16px 40px;
+  }
+
+  .footer-wrapper {
+    padding: 60px 16px;
+  }
+
+  .footer-motto-socials {
+    width: 100%;
+    height: 180px;
+  }
+
+  .footer-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .footer-contacts {
+    margin-top: 40px;
+    width: 100%;
+  }
 }
