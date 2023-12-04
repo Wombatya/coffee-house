@@ -118,7 +118,7 @@ nav {
   position: absolute;
   content: "";
   left: 50%;
-  bottom: -5px;
+  bottom: 10px;
   display: block;
   width: 100%;
   height: 2px;
@@ -603,6 +603,20 @@ footer {
 
   .footer-contacts {
     margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .menu-choice-wrapper {
+    justify-content: center;
+  }
+
+  .footer-wrapper {
+    padding: 60px 16px;
+  }
+
+  .footer-motto-socials {
+    width: 100%;
   }
 }
 

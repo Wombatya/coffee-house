@@ -625,7 +625,6 @@ footer {
 
   .enjoy-info-button:hover .button-text::after {
     opacity: 100%;
-    left: px;
   }
 
   .slider-arrow:hover {
@@ -692,11 +691,11 @@ footer {
   }
 
   .column-item:nth-child(1) .about-pic-big {
-    background-size: 105%;
+    background-size: cover;
   }
 
   .column-item:nth-child(2) .about-pic-big {
-    background-size: 105%;
+    background-size: cover;
   }
 
   .app-wrapper {
@@ -799,7 +798,6 @@ footer {
 
   .enjoy-info-button .button-text::after {
     opacity: 100%;
-    left: px;
   }
 
   .button-text {
@@ -865,6 +863,45 @@ footer {
 
   .footer-contacts {
     margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .enjoy-wrapper {
+    padding: 60px 16px;
+  }
+
+  .enjoy-info {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 42px;
+    line-height: 48.3px;
+  }
+
+  .enjoy-info-text {
+    margin: 40px 0;
+  }
+
+  .column-item:nth-child(1) .about-pic-big {
+    background-size: cover;
+  }
+
+  .column-item:nth-child(2) .about-pic-big {
+    background-size: cover;
+  }
+
+  .phones {
+    width: 100%;
+  }
+
+  .footer-wrapper {
+    padding: 60px 16px;
+  }
+
+  .footer-motto-socials {
+    width: 100%;
   }
 }
 
