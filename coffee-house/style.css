@@ -965,4 +965,21 @@ footer {
   .slider-arrow {
     display: none;
   }
+
+  .about {
+    padding: 0 16px;
+  }
+
+  .about-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .column-item:nth-child(1) .about-pic-big {
+    background-size: auto;
+  }
+
+  .column-item:nth-child(2) .about-pic-big {
+    background-size: auto;
+  }
 }
