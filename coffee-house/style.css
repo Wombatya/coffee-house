@@ -606,9 +606,9 @@ footer {
   transition: 0.3s;
 }
 
-.cont-link:hover:after {
+/* .cont-link:hover:after {
   width: 100%;
-}
+} */
 
 @media (pointer: fine) and (hover: hover) {
   .nav-link:hover:after {
@@ -666,6 +666,10 @@ footer {
 
   .socials-logo:hover .socials-logo-item {
     stroke: #403f3d;
+  }
+
+  .cont-link:hover:after {
+    width: 100%;
   }
 }
 
