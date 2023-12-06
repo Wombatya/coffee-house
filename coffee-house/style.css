@@ -139,6 +139,7 @@ nav {
 .enjoy-wrapper {
   background-image: url(img/img-hero.jpg);
   background-size: cover;
+  background-position: center;
   padding: 100px;
   border-radius: 40px;
   width: 100%;
