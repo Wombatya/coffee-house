@@ -139,6 +139,7 @@ nav {
 .enjoy-wrapper {
   background-image: url(img/img-hero.jpg);
   background-size: cover;
+  background-position: center;
   padding: 100px;
   border-radius: 40px;
   width: 100%;
@@ -605,9 +606,9 @@ footer {
   transition: 0.3s;
 }
 
-.cont-link:hover:after {
+/* .cont-link:hover:after {
   width: 100%;
-}
+} */
 
 @media (pointer: fine) and (hover: hover) {
   .nav-link:hover:after {
@@ -665,6 +666,10 @@ footer {
 
   .socials-logo:hover .socials-logo-item {
     stroke: #403f3d;
+  }
+
+  .cont-link:hover:after {
+    width: 100%;
   }
 }
 
