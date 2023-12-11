@@ -1,0 +1,19 @@
+let menuBtn = document.querySelector('.burger');
+let menu = document.querySelector('.menu-for-burger');
+
+let toggleMenu = function(){
+    menuBtn.classList.toggle('active');
+	menu.classList.toggle('active');
+}
+
+menuBtn.addEventListener('click', function(event) {
+    event.stopPropagation();
+toggleMenu();
+    if (menu.classList.contains('active')) {
+        menu.addEventListener('click', function() {
+   menu.classList.remove('active');
+   menuBtn.classList.remove('active');
+})
+        }
+}  
+);
