@@ -11,6 +11,7 @@ body {
   display: flex;
   justify-content: center;
   overflow-x: hidden;
+  height: 100vh;
 }
 
 .main-container {
@@ -758,6 +759,10 @@ footer {
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  .main-container.active {
+    overflow-y: hidden;
   }
 
   .burger {

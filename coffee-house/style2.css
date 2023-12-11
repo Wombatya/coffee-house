@@ -6,6 +6,7 @@ html {
 
 body {
   margin: 0 auto;
+  height: 100vh;
   box-sizing: border-box;
   background-color: #e1d4c9;
   display: flex;
@@ -510,6 +511,10 @@ footer {
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  .main-container.active {
+    overflow-y: hidden;
   }
 
   .burger {
