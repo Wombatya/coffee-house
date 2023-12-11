@@ -137,20 +137,32 @@ nav {
 }
 
 .enjoy-wrapper {
-  background-image: url(img/img-hero.jpg);
+  /* background-image: url(img/img-hero.jpg);
   background-size: cover;
   background-position: center;
-  padding: 100px;
-  border-radius: 40px;
+  padding: 100px; */
   width: 100%;
+  position: relative;
+}
+
+.enjoy-video {
+  object-fit: cover;
+  width: 100%;
+  position: absolute;
+  border-radius: 40px;
+  height: 100%;
+  z-index: 0;
 }
 
 .enjoy-info {
   width: 530px;
   height: 444px;
+  padding: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -789,11 +801,24 @@ footer {
   }
 
   .enjoy-wrapper {
-    background-image: url(img/img-hero.jpg);
+    /* background-image: url(img/img-hero.jpg);
     background-position: bottom;
-    padding: 100px 60px;
-    border-radius: 40px;
+    padding: 100px 60px; */
     width: 100%;
+    position: relative;
+  }
+
+  .enjoy-video {
+    object-fit: cover;
+    width: 100%;
+    position: absolute;
+    border-radius: 40px;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .enjoy-info {
+    padding: 100px 60px;
   }
 
   .enjoy-info-button .button-text {
@@ -872,12 +897,9 @@ footer {
 }
 
 @media screen and (max-width: 700px) {
-  .enjoy-wrapper {
-    padding: 60px 16px;
-  }
-
   .enjoy-info {
     width: 100%;
+    padding: 60px 16px;
   }
 
   h1 {
@@ -1015,13 +1037,10 @@ footer {
     padding: 0 16px;
   }
 
-  .enjoy-wrapper {
-    padding: 60px 16px;
-  }
-
   .enjoy-info {
     width: 100%;
     height: auto;
+    padding: 60px 16px;
   }
 
   h1 {
