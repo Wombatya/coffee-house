@@ -252,6 +252,25 @@ h1 {
   color: #403f3d;
 }
 
+.slider-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-wrapper {
+  width: 480px;
+  overflow: hidden;
+}
+
+.slider-line {
+  display: flex;
+  position: relative;
+  left: 0;
+  transition: 1s;
+}
+
 .favorite-slider {
   width: 100%;
   margin-top: 40px;
@@ -275,7 +294,7 @@ h1 {
 } */
 
 .slider-item {
-  width: 480px;
+  min-width: 480px;
 }
 
 .slider-item-pic {
@@ -912,6 +931,14 @@ footer {
     margin-top: 17px;
   }
 
+  .slider-wrapper {
+    width: 488px;
+  }
+
+  .slider-item {
+    min-width: 488px;
+  }
+
   .about-pics {
     width: 100%;
     margin-top: 0;
@@ -1132,6 +1159,14 @@ footer {
 
   .slider-arrow {
     display: none;
+  }
+
+  .slider-wrapper {
+    width: 348px;
+  }
+
+  .slider-item {
+    min-width: 348px;
   }
 
   .about {
