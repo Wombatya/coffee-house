@@ -8,6 +8,8 @@ let toggleMenu = function(){
     container.classList.toggle('active');
 }
 
+
+// Открыть/закрыть бургер меню
 menuBtn.addEventListener('click', function(event) {
     event.stopPropagation();
 toggleMenu();
