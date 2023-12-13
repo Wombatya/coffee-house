@@ -24,37 +24,9 @@ let isDragging = false,
   animationID,
   currentIndex = 0;
 
-const thisIndex = function (index) {
-    for (let control of controls) {
-      control.classList.remove("active");
-    }
-    controls[index].classList.add("active");
-  };
-
-const nextSlide = function () {
-  if (position < (controls.length - 1) * width.offsetWidth) {
-    position += width.offsetWidth;
-    controlIndex += 1;
-  } else {
-    position = 0;
-    controlIndex = 0;
-  }
-  sliderLine.style.left = -position + "px";
-  thisIndex(controlIndex);
-};
-
-const prevSlide = function () {
-  if (position > 0) {
-    position -= width.offsetWidth;
-    controlIndex -= 1;
-  } else {
-    position = (controls.length - 1) * width.offsetWidth;
-    controlIndex = controls.length - 1;
-  }
-  sliderLine.style.left = -position + "px";
-  thisIndex(controlIndex);
-};
-
+  const progressBar = document.querySelectorAll(".control-progress");
+let barIndex = 0;
+let interval;
 
 // Открыть/закрыть бургер меню
 menuBtn.addEventListener("click", function (event) {
@@ -69,67 +41,107 @@ menuBtn.addEventListener("click", function (event) {
   }
 });
 
-if (screen.width > 380 ) {
-//Переключить на следующий слайд
-nextButton.addEventListener("click", nextSlide);
+const move = function(el, index) {
+    let startDate = new Date();
+    let endDate = new Date();
+    endDate = endDate.setSeconds(endDate.getSeconds() + 5);
+    interval = setInterval(() => {
+        let currentDate = new Date();
+        let leftPercent = Math.trunc((endDate - currentDate) / (endDate - startDate) * 100);
+        let passedPercent = +(100 - leftPercent);
 
-//Переключить на предыдущий слайд
-prevButton.addEventListener("click", prevSlide);
+        progressBar[index].style.width = passedPercent + '%';
+        console.log(leftPercent)
+        if(leftPercent == 0) {
+            clearInterval(interval);
+            progressBar[index].style.width = 0;
+        }
+    }, 100)
+}
+
+const nextSlide = function () {
+    clearInterval(interval);
+progressBar[controlIndex].style.width = 0;
+  if (position < (controls.length - 1) * width.offsetWidth) {
+    position += width.offsetWidth;
+    controlIndex += 1;
+  } else {
+    position = 0;
+    controlIndex = 0;
+  }
+  sliderLine.style.left = -position + "px";
+  move(progressBar[controlIndex], controlIndex);
+};
+
+const prevSlide = function () {
+    clearInterval(interval);
+progressBar[controlIndex].style.width = 0;
+  if (position > 0) {
+    position -= width.offsetWidth;
+    controlIndex -= 1;
+  } else {
+    position = (controls.length - 1) * width.offsetWidth;
+    controlIndex = controls.length - 1;
+  }
+  sliderLine.style.left = -position + "px";
+  move(progressBar[controlIndex], controlIndex);
+};
+
+move(progressBar[currentIndex], currentIndex);
+
+//Автоматическое пролистывание слайдов
+let auto = setInterval(nextSlide, 5000);
+
+if (screen.width > 380) {
+  //Переключить на следующий слайд
+  nextButton.addEventListener("click", () => {
+clearInterval(auto);
+nextSlide();
+auto = setInterval(nextSlide, 5000);
+})
+
+
+  //Переключить на предыдущий слайд
+  prevButton.addEventListener("click", () => {
+    clearInterval(auto);
+    prevSlide();
+    auto = setInterval(nextSlide, 5000);
+  });
 }
 
 if (screen.width <= 380) {
-    slides.forEach((slide, index) => {
-        slide.addEventListener("touchstart", touchStart(index));
-        slide.addEventListener("touchend", touchEnd);
-        slide.addEventListener("touchmove", touchMove);
-      });
-    
-      function touchStart(index) {
-        return function (event) {
-          currentIndex = index;
-          startPos = event.touches[0].clientX;
-          isDragging = true;
-        };
-      }
-      function touchMove(event) {
-        if (isDragging) {
-          const currentPosition = event.touches[0].clientX;
-          currentTranslate = prevTranslate + currentPosition - startPos;
-        }
-      }
-      function touchEnd() {
-        isDragging = false;
-        console.log(currentIndex);
-        const movedBy = currentTranslate - prevTranslate;
-        // if moved enough negative then snap to next slide if there is one
-        if (movedBy < -100) {
-            if (position < (controls.length - 1) * width.offsetWidth) {
-                position += width.offsetWidth;
-                controlIndex += 1;
-              } else {
-                position = 0;
-                controlIndex = 0;
-                currentIndex = 0;
-              }
-              sliderLine.style.left = -position + "px";
-              thisIndex(controlIndex);
-        };
-        // if moved enough positive then snap to previous slide if there is one
-        if (movedBy > 100) {
-            if (position > 0) {
-                position -= width.offsetWidth;
-                controlIndex -= 1;
-              } else {
-                position = (controls.length - 1) * width.offsetWidth;
-                controlIndex = controls.length - 1;
-              }
-              sliderLine.style.left = -position + "px";
-              thisIndex(controlIndex);
-        };
-      }
+  slides.forEach((slide, index) => {
+    slide.addEventListener("touchstart", touchStart(index));
+    slide.addEventListener("touchend", touchEnd);
+    slide.addEventListener("touchmove", touchMove);
+  });
+
+  function touchStart(index) {
+    return function (event) {
+      currentIndex = index;
+      startPos = event.touches[0].clientX;
+      isDragging = true;
+    };
+  }
+  function touchMove(event) {
+    if (isDragging) {
+      const currentPosition = event.touches[0].clientX;
+      currentTranslate = prevTranslate + currentPosition - startPos;
+    }
+  }
+  function touchEnd() {
+    isDragging = false;
+    console.log(currentIndex);
+    const movedBy = currentTranslate - prevTranslate;
+    // if moved enough negative then snap to next slide if there is one
+    if (movedBy < -100) {
+ nextSlide();
+    }
+    // if moved enough positive then snap to previous slide if there is one
+    if (movedBy > 100) {
+  prevSlide();
+    }
+  }
 }
 
-//Автоматическое пролистывание слайдов 
-setInterval(() => {
-nextSlide()
-}, 5000)
+
