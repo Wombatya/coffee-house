@@ -335,6 +335,7 @@ h1 {
   width: 144px;
   justify-content: space-between;
 }
+
 .control {
   width: 40px;
   height: 4px;
@@ -343,9 +344,11 @@ h1 {
   background-color: #c1b6ad;
 }
 
-.control.active {
+.control-progress {
   border-color: #665f55;
   background-color: #665f55;
+  width: 0;
+  height: 100%;
 }
 
 .about {
