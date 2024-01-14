@@ -89,7 +89,7 @@
  }
 
  .letter {
-    width: calc(1005 / 9 - 5px);
+    width: calc(100% / 9 - 5px);
     padding: 7px;
  }
 
