@@ -168,8 +168,31 @@ buttonZ.classList.add("letter");
 buttonZ.innerHTML = "z";
 keyboard.appendChild(buttonZ);
 
+const modal = document.createElement("div");
+modal.classList.add("modal");
+document.body.append(modal);
 
+const modalContent = document.createElement("div");
+modalContent.classList.add("modal-content");
+modal.appendChild(modalContent);
 
+const loseGame = document.createElement("img");
+loseGame.src = "./img/lost.gif";
+loseGame.alt = "Вы проиграли";
+modalContent.appendChild(loseGame);
+
+const loseText = document.createElement("p");
+loseText.innerHTML = "Game over!";
+modalContent.appendChild(loseText);
+
+const correctWord = document.createElement("p");
+correctWord.innerHTML = "The correct word was: <b> </b>";
+modalContent.appendChild(correctWord);
+
+const againBtn = document.createElement("button");
+againBtn.classList.add("play-again");
+againBtn.innerHTML = "Play again";
+modalContent.appendChild(againBtn);
 
 
 
