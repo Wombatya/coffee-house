@@ -24,11 +24,13 @@ wordToGuess.innerHTML = wordLetter.repeat(7);
 
 const hint = document.createElement("p");
 hint.classList.add("hint");
+hint.classList.add("text");
 hint.innerHTML = "Hint: <b> </b>";
 gameWrapper.appendChild(hint);
 
 const guessesNumber = document.createElement("p");
 guessesNumber.classList.add("guesses");
+guessesNumber.classList.add("text");
 guessesNumber.innerHTML = "Incorrect guesses: <b>0 / 6 </b>";
 gameWrapper.appendChild(guessesNumber);
 
