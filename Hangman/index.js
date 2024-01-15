@@ -75,6 +75,131 @@ againBtn.classList.add("button");
 againBtn.innerHTML = "Play again";
 modalContent.appendChild(againBtn);
 
+const wordList = [
+    {
+        word: "mountain",
+        hint: "a raised part of the earth's surface, much larger than a hill, the top of which might be covered in snow."
+    },
+    {
+        word: "glass",
+        hint: "A hard, transparent material, used to make windows, bottles, and other objects."
+    },
+    {
+        word: "answer",
+        hint: "A reaction to a question, letter, phone call, etc."
+    },
+    {
+        word: "candy",
+        hint: "A sweet food made from sugar or chocolate."
+    },
+    {
+        word: "caterpillar",
+        hint: "A small, long animal with many legs that feeds on the leaves of plants, and develops into a butterfly."
+    },
+    {
+        word: "geography",
+        hint: "The study of the systems and processes involved in the world's weather, mountains, seas, lakes, etc."
+    },
+    {
+        word: "bird",
+        hint: "A creature with feathers and wings, usually able to fly"
+    },
+    {
+        word: "sunrise",
+        hint: "The time in the morning when the sun starts to rise in the sky."
+    },
+    {
+        word: "comedy",
+        hint: "A (type of) film, play, or book that is intentionally funny either in its characters or its action."
+    },
+    {
+        word: "star",
+        hint: "A very large ball of burning gas in space that is usually seen from the earth as a point of light in the sky at night."
+    },
+    {
+        word: "choir",
+        hint: "A group of people who sing together."
+    },
+    {
+        word: "lake",
+        hint: "A large area of water surrounded by land and not connected to the sea except by rivers or streams."
+    },
+    {
+        word: "landscape",
+        hint: "A view or picture of the countryside, or the art of making such pictures."
+    },
+    {
+        word: "bookmark",
+        hint: "A piece of thick paper, leather, or plastic that you put between the pages of a book so that you can find a page again quickly."
+    },
+    {
+        word: "morality",
+        hint: "A set of personal or social standards for good or bad behaviour and character."
+    },
+    {
+        word: "chemistry",
+        hint: "The scientific study of the basic characteristics of substances and the ways in which they react or combine."
+    },
+    {
+        word: "snowboard",
+        hint: "A specially shaped board that you stand on to slide down a snow-covered slope."
+    },
+    {
+        word: "thunder",
+        hint: "The sudden loud noise that comes from the sky especially during a storm."
+    },
+    {
+        word: "barrel",
+        hint: "a large container, made of wood, metal, or plastic, with a flat top and bottom, often used for wine."
+    },
+    {
+        word: "glue",
+        hint: "A sticky substance that is used for joining things together."
+    },
+    {
+        word: "opera",
+        hint: "A musical play in which most of the words are sung."
+    },
+    {
+        word: "wardrobe",
+        hint: "A tall cupboard in which you hang your clothes."
+    },
+    {
+        word: "envelope",
+        hint: "A flat, usually square or rectangular, paper container for a letter."
+    },
+    {
+        word: "camomile",
+        hint: "A plant whose white and yellow flowers are used to make tea."
+    },
+    {
+        word: "jewelry",
+        hint: "Decorative objects worn on your clothes or body that are usually made from valuable metals."
+    },
+    {
+        word: "binoculars",
+        hint: "A pair of tubes with glass lenses at either end that you look through to see things far away more clearly."
+    },
+    {
+        word: "dessert",
+        hint: "Sweet food eaten at the end of a meal."
+    },
+    {
+        word: "perception",
+        hint: "A belief or opinion, often held by many people and based on how things seem."
+    },
+    {
+        word: "imagination",
+        hint: "The ability to form pictures in the mind."
+    },
+    {
+        word: "savings",
+        hint: "The money that you keep in an account in a bank or similar financial organization."
+    },
+];
+
+
+
 
 
 
