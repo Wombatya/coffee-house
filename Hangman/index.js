@@ -29,11 +29,28 @@ const guessesNumber = document.createElement("p");
 guessesNumber.classList.add("guesses");
 guessesNumber.classList.add("text");
 guessesNumber.innerHTML = "Incorrect guesses: <b>0 / 6 </b>";
-gameWrapper.appendChild(guessesNumber);
+gameWrapper.appendChild(guessesNumber); 
 
 const keyboard = document.createElement("div");
 keyboard.classList.add("keyboard");
 gameWrapper.appendChild(keyboard);
+
+let worngGuessesCount = 0; 
+
+function initGame(button, clickedLetter) {
+    if(currentWord.includes(clickedLetter)) {
+        [...currentWord].forEach((letter, i) => {
+            if (letter === clickedLetter) {
+                wordToGuess.querySelectorAll("li")[i].innerText = letter;
+                wordToGuess.querySelectorAll("li")[i].classList.add("guessed");
+            }
+        })
+    }
+    else {
+        worngGuessesCount++;  
+    }
+    document.querySelector(".guesses b").innerText = `${worngGuessesCount} / 6`;
+}
 
 for (let i = 97; i <= 122; i++) {
     const button = document.createElement("button");
@@ -41,6 +58,7 @@ for (let i = 97; i <= 122; i++) {
     button.classList.add("button");
     button.innerText = String.fromCharCode(i);
     keyboard.appendChild(button);
+    button.addEventListener("click", e => initGame(e.target, String.fromCharCode(i)));
 }
 
 const modal = document.createElement("div");
@@ -55,6 +73,10 @@ const loseGame = document.createElement("img");
 loseGame.src = "./img/lost.gif";
 loseGame.alt = "Вы проиграли";
 modalContent.appendChild(loseGame);
+
+const winGame = document.createElement("img");
+winGame.scr = "./img/victory.gif";
+winGame.alt = "Вы победили";
 
 const loseText = document.createElement("p");
 loseText.classList.add("lose-text");
@@ -195,9 +217,11 @@ const wordList = [
     },
 ];
 
+let currentWord;
 
 function getWord() {
     const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
+    currentWord = word;
     document.querySelector(".hint b").innerText = hint;
     wordToGuess.innerHTML = word.split("").map(() => `<li class="word-letter"></li>`).join("");
 }
