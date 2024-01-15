@@ -264,9 +264,40 @@ function getWord() {
     resetGame();
 }
 
+document.addEventListener('keydown', event => {
+        if(currentWord.includes(event.key)) {
+            [...currentWord].forEach((letter, i) => {
+                if (letter === event.code[3].toLowerCase()) {
+                    guessedLetters.push(letter);
+                    wordToGuess.querySelectorAll("li")[i].innerText = letter;
+                    wordToGuess.querySelectorAll("li")[i].classList.add("guessed");
+                }
+            })
+        }
+        else {
+            wrongGuessesCount++;  
+            hangmanImgUpdate.src = `./img/hangman-${wrongGuessesCount}.svg`;
+        }
+
+        let buttons = document.querySelectorAll("button");
+        buttons.forEach((el) => {
+            if (el.innerText === event.code[3]) {
+                el.classList.add("disabled");
+                el.setAttribute("disabled", '');  
+            }
+        })
+        document.querySelector(".guesses b").innerText = `${wrongGuessesCount} / 6`;
+    
+        if (wrongGuessesCount === 6) {
+            return gameOver(true);
+        }
+        if (guessedLetters.length === currentWord.length) {
+            return gameOver(false);
+        }
+    })
+
 getWord();
 againBtn.addEventListener("click",getWord)
-
 
 
 
