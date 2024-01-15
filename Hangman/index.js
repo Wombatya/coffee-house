@@ -42,15 +42,17 @@ let guessedLetters = [];
 
 function gameOver(useAllTries) {
     modal.classList.add("show");
+    document.querySelector(".correct-word b").innerText = `${currentWord}`;
     if (useAllTries) {
-        modalContent.appendChild(loseGame);
-        modalContent.appendChild(loseText);
+        endGame.src = "./img/lost.gif";
+        endGame.alt = "Вы проиграли";
+        endText.innerHTML = "Game over!";
     }
     else {
-        modalContent.appendChild(winGame);
-        modalContent.appendChild(winText);
+        endGame.src = "./img/victory.gif";
+        endGame.alt = "Вы победили";
+        endText.innerHTML = "You win!";
     }
-    document.querySelector(".correct-word b").innerText = `${currentWord}`;
     modalContent.appendChild(againBtn);
 }
 
@@ -97,21 +99,15 @@ const modalContent = document.createElement("div");
 modalContent.classList.add("modal-content");
 modal.appendChild(modalContent);
 
-const loseGame = document.createElement("img");
-loseGame.src = "./img/lost.gif";
-loseGame.alt = "Вы проиграли";
+const endGame = document.createElement("img");
+endGame.src = "./img/lost.gif";
+endGame.alt = "Вы проиграли";
+modalContent.appendChild(endGame);
 
-const winGame = document.createElement("img");
-winGame.src = "./img/victory.gif";
-winGame.alt = "Вы победили";
-
-const loseText = document.createElement("p");
-loseText.classList.add("end-game-text");
-loseText.innerHTML = "Game over!";
-
-const winText = document.createElement("p");
-winText.classList.add("end-game-text");
-winText.innerHTML = "You win!";
+const endText = document.createElement("p");
+endText.classList.add("end-game-text");
+endText.innerHTML = "Game over!";
+modalContent.appendChild(endText);
 
 const correctWord = document.createElement("p");
 correctWord.classList.add("correct-word");
@@ -248,14 +244,26 @@ const wordList = [
 
 let currentWord;
 
+function resetGame() {
+    guessedLetters = [];
+    wrongGuessesCount = 0;
+    wordToGuess.innerHTML = currentWord.split("").map(() => `<li class="word-letter"></li>`).join("");
+    modal.classList.remove("show");
+    hangmanImgUpdate.src = `./img/hangman-${wrongGuessesCount}.svg`;
+    document.querySelector(".guesses b").innerText = `${wrongGuessesCount} / 6`;
+    keyboard.querySelectorAll("button").forEach((btn) => btn.classList.remove("disabled"));
+    keyboard.querySelectorAll("button").forEach((btn) => btn.removeAttribute("disabled"));
+}
+
 function getWord() {
     const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
     currentWord = word;
     document.querySelector(".hint b").innerText = hint;
-    wordToGuess.innerHTML = word.split("").map(() => `<li class="word-letter"></li>`).join("");
+    resetGame();
 }
 
 getWord();
+againBtn.addEventListener("click",getWord)
 
 
 
