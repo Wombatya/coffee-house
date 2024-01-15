@@ -53,6 +53,11 @@
     margin: -40px 0 35px;
  }
 
+ .button.disabled {
+    background-color: #85F8EC;
+    cursor: default;
+ }
+
  .text {
     text-align: center;
     font-weight: 400;

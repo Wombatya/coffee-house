@@ -35,7 +35,9 @@ const keyboard = document.createElement("div");
 keyboard.classList.add("keyboard");
 gameWrapper.appendChild(keyboard);
 
-let worngGuessesCount = 0; 
+const hangmanImgUpdate = document.querySelector(".hangman-wrapper img");
+
+let wrongGuessesCount = 0; 
 
 function initGame(button, clickedLetter) {
     if(currentWord.includes(clickedLetter)) {
@@ -43,13 +45,18 @@ function initGame(button, clickedLetter) {
             if (letter === clickedLetter) {
                 wordToGuess.querySelectorAll("li")[i].innerText = letter;
                 wordToGuess.querySelectorAll("li")[i].classList.add("guessed");
+                button.classList.add("disabled");
+                button.setAttribute("disabled", '');
             }
         })
     }
     else {
-        worngGuessesCount++;  
+        wrongGuessesCount++;  
+        hangmanImgUpdate.src = `./img/hangman-${wrongGuessesCount}.svg`;
+        button.classList.add("disabled");
+        button.setAttribute("disabled", '');
     }
-    document.querySelector(".guesses b").innerText = `${worngGuessesCount} / 6`;
+    document.querySelector(".guesses b").innerText = `${wrongGuessesCount} / 6`;
 }
 
 for (let i = 97; i <= 122; i++) {
