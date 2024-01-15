@@ -19,9 +19,6 @@ const wordToGuess = document.createElement("ul");
 wordToGuess.classList.add("word-to-guess");
 gameWrapper.appendChild(wordToGuess);
 
-const wordLetter = '<li class="word-letter"></li>';
-wordToGuess.innerHTML = wordLetter.repeat(7);
-
 const hint = document.createElement("p");
 hint.classList.add("hint");
 hint.classList.add("text");
@@ -78,7 +75,7 @@ modalContent.appendChild(againBtn);
 const wordList = [
     {
         word: "mountain",
-        hint: "a raised part of the earth's surface, much larger than a hill, the top of which might be covered in snow."
+        hint: "A raised part of the earth's surface, much larger than a hill, the top of which might be covered in snow."
     },
     {
         word: "glass",
@@ -102,7 +99,7 @@ const wordList = [
     },
     {
         word: "bird",
-        hint: "A creature with feathers and wings, usually able to fly"
+        hint: "A creature with feathers and wings, usually able to fly."
     },
     {
         word: "sunrise",
@@ -150,7 +147,7 @@ const wordList = [
     },
     {
         word: "barrel",
-        hint: "a large container, made of wood, metal, or plastic, with a flat top and bottom, often used for wine."
+        hint: "A large container, made of wood, metal, or plastic, with a flat top and bottom, often used for wine."
     },
     {
         word: "glue",
@@ -198,6 +195,14 @@ const wordList = [
     },
 ];
 
+
+function getWord() {
+    const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
+    document.querySelector(".hint b").innerText = hint;
+    wordToGuess.innerHTML = word.split("").map(() => `<li class="word-letter"></li>`).join("");
+}
+
+getWord();
 
 
 
