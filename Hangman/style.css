@@ -114,6 +114,10 @@
     justify-content: center;
  }
 
+ .modal.show {
+    display: flex;
+ }
+
  .modal-content {
     width: 100%;
     max-width: 360px;
@@ -121,6 +125,9 @@
     text-align: center;
     padding: 30px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
  }
 
  .modal-content img {
@@ -128,8 +135,9 @@
     margin-bottom: 20px;
  }
 
- .lose-text {
+ .end-game-text {
     font-size: 1.53rem;
+    margin-bottom: 10px;
  }
 
  .correct-word {

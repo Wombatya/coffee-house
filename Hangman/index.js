@@ -38,25 +38,46 @@ gameWrapper.appendChild(keyboard);
 const hangmanImgUpdate = document.querySelector(".hangman-wrapper img");
 
 let wrongGuessesCount = 0; 
+let guessedLetters = [];
+
+function gameOver(useAllTries) {
+    modal.classList.add("show");
+    if (useAllTries) {
+        modalContent.appendChild(loseGame);
+        modalContent.appendChild(loseText);
+    }
+    else {
+        modalContent.appendChild(winGame);
+        modalContent.appendChild(winText);
+    }
+    document.querySelector(".correct-word b").innerText = `${currentWord}`;
+    modalContent.appendChild(againBtn);
+}
 
 function initGame(button, clickedLetter) {
     if(currentWord.includes(clickedLetter)) {
         [...currentWord].forEach((letter, i) => {
             if (letter === clickedLetter) {
+                guessedLetters.push(letter);
                 wordToGuess.querySelectorAll("li")[i].innerText = letter;
                 wordToGuess.querySelectorAll("li")[i].classList.add("guessed");
-                button.classList.add("disabled");
-                button.setAttribute("disabled", '');
             }
         })
     }
     else {
         wrongGuessesCount++;  
         hangmanImgUpdate.src = `./img/hangman-${wrongGuessesCount}.svg`;
-        button.classList.add("disabled");
-        button.setAttribute("disabled", '');
     }
+    button.classList.add("disabled");
+    button.setAttribute("disabled", '');
     document.querySelector(".guesses b").innerText = `${wrongGuessesCount} / 6`;
+
+    if (wrongGuessesCount === 6) {
+        return gameOver(true);
+    }
+    if (guessedLetters.length === currentWord.length) {
+        return gameOver(false);
+    }
 }
 
 for (let i = 97; i <= 122; i++) {
@@ -79,16 +100,18 @@ modal.appendChild(modalContent);
 const loseGame = document.createElement("img");
 loseGame.src = "./img/lost.gif";
 loseGame.alt = "Вы проиграли";
-modalContent.appendChild(loseGame);
 
 const winGame = document.createElement("img");
-winGame.scr = "./img/victory.gif";
+winGame.src = "./img/victory.gif";
 winGame.alt = "Вы победили";
 
 const loseText = document.createElement("p");
-loseText.classList.add("lose-text");
+loseText.classList.add("end-game-text");
 loseText.innerHTML = "Game over!";
-modalContent.appendChild(loseText);
+
+const winText = document.createElement("p");
+winText.classList.add("end-game-text");
+winText.innerHTML = "You win!";
 
 const correctWord = document.createElement("p");
 correctWord.classList.add("correct-word");
@@ -99,7 +122,6 @@ const againBtn = document.createElement("button");
 againBtn.classList.add("play-again");
 againBtn.classList.add("button");
 againBtn.innerHTML = "Play again";
-modalContent.appendChild(againBtn);
 
 const wordList = [
     {
