@@ -41,7 +41,8 @@ let wrongGuessesCount = 0;
 let guessedLetters = [];
 
 function gameOver(useAllTries) {
-    modal.classList.add("show");
+    setTimeout(() => {
+        modal.classList.add("show");
     document.querySelector(".correct-word b").innerText = `${currentWord}`;
     if (useAllTries) {
         endGame.src = "./img/lost.gif";
@@ -54,6 +55,7 @@ function gameOver(useAllTries) {
         endText.innerHTML = "You win!";
     }
     modalContent.appendChild(againBtn);
+}, 200);
 }
 
 function initGame(button, clickedLetter) {
