@@ -39,6 +39,7 @@ const hangmanImgUpdate = document.querySelector(".hangman-wrapper img");
 
 let wrongGuessesCount = 0;
 let guessedLetters = [];
+let wrongLetters = [];
 
 function gameOver(useAllTries) {
   setTimeout(() => {
@@ -70,7 +71,8 @@ if (currentWord.includes(event.code[3].toLowerCase())) {
     wordToGuess.querySelectorAll("li")[i].classList.add("guessed");
   }
 });
-} else {
+} else if (!(wrongLetters.includes(event.code))) {
+wrongLetters.push(event.code);
 wrongGuessesCount++;
 hangmanImgUpdate.src = `./img/hangman-${wrongGuessesCount}.svg`;
 }
