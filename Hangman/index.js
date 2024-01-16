@@ -39,10 +39,12 @@ const hangmanImgUpdate = document.querySelector(".hangman-wrapper img");
 
 let wrongGuessesCount = 0;
 let guessedLetters = [];
+let wrongLetters = [];
 
 function gameOver(useAllTries) {
   setTimeout(() => {
     modal.classList.add("show");
+    document.removeEventListener("keydown", physicalKeyboard);
     document.querySelector(".correct-word b").innerText = `${currentWord}`;
     if (useAllTries) {
       endGame.src = "./img/lost.gif";
@@ -56,6 +58,48 @@ function gameOver(useAllTries) {
     modalContent.appendChild(againBtn);
   }, 200);
 }
+
+function physicalKeyboard(event) {
+  keys.forEach((el) => {
+    if (el === event.code) {
+if (!(guessedLetters.includes(event.code[3].toLowerCase()))) {
+if (currentWord.includes(event.code[3].toLowerCase())) {
+[...currentWord].forEach((letter, i) => {
+  if (letter === event.code[3].toLowerCase()) { 
+    guessedLetters.push(letter);
+    wordToGuess.querySelectorAll("li")[i].innerText = letter;
+    wordToGuess.querySelectorAll("li")[i].classList.add("guessed");
+  }
+});
+} else if (!(wrongLetters.includes(event.code))) {
+wrongLetters.push(event.code);
+wrongGuessesCount++;
+hangmanImgUpdate.src = `./img/hangman-${wrongGuessesCount}.svg`;
+}
+}
+
+let buttons = document.querySelectorAll("button");
+buttons.forEach((el) => {
+if (el.innerText === event.code[3]) {
+  el.classList.add("disabled");
+  el.setAttribute("disabled", "");
+}
+});
+document.querySelector(".guesses b").innerText = `${wrongGuessesCount} / 6`;
+
+if (wrongGuessesCount === 6) {
+return gameOver(true);
+}
+if (guessedLetters.length === currentWord.length) {
+return gameOver(false);
+}
+}
+})
+}
+
+function keybordActive() {
+  document.addEventListener("keydown", physicalKeyboard);
+  }
 
 function initGame(button, clickedLetter) {
   if (currentWord.includes(clickedLetter)) {
@@ -268,6 +312,7 @@ function getWord() {
   const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
   currentWord = word;
   document.querySelector(".hint b").innerText = hint;
+  keybordActive();
   resetGame();
 }
 
@@ -299,43 +344,6 @@ const keys = [
   "KeyY",
   "KeyZ",
 ];
-
-document.addEventListener("keydown", (event) => {
-    keys.forEach((el) => {
-        if (el === event.code) {
-    if (!(guessedLetters.includes(event.code[3].toLowerCase()))) {
-  if (currentWord.includes(event.code[3].toLowerCase())) {
-    [...currentWord].forEach((letter, i) => {
-      if (letter === event.code[3].toLowerCase()) { 
-        guessedLetters.push(letter);
-        wordToGuess.querySelectorAll("li")[i].innerText = letter;
-        wordToGuess.querySelectorAll("li")[i].classList.add("guessed");
-      }
-    });
-  } else {
-    wrongGuessesCount++;
-    hangmanImgUpdate.src = `./img/hangman-${wrongGuessesCount}.svg`;
-  }
-}
-
-  let buttons = document.querySelectorAll("button");
-  buttons.forEach((el) => {
-    if (el.innerText === event.code[3]) {
-      el.classList.add("disabled");
-      el.setAttribute("disabled", "");
-    }
-  });
-  document.querySelector(".guesses b").innerText = `${wrongGuessesCount} / 6`;
-
-  if (wrongGuessesCount === 6) {
-    return gameOver(true);
-  }
-  if (guessedLetters.length === currentWord.length) {
-    return gameOver(false);
-  }
-}
-    })
-});
 
 getWord();
 againBtn.addEventListener("click", getWord);
