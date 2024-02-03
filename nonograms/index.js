@@ -145,15 +145,11 @@ class Square {
 
 
     render() {
-        this.square.classList.add("square");
+        this.square.className = "square";
         this.square.className += ` ${this.status}`;
         return this.square;
     }
 }
-
-let sq = new Square(this);
-
-console.log(sq);
 
 
 class Board {
@@ -322,22 +318,61 @@ class Level {
         return nums;
     }
 
-    // revealPicture() {
-    //     let pic = document.querySelector(`${this.name}`);
-    //     // pic.className = 'solved';
-    //     pic.innerHTML = "You won";
-    // }
+    revealPicture() {
+        let pic = document.querySelector(".board");
+        // (`${this.name}`);
+        // pic.className = 'solved';
+        pic.innerHTML = "You won";
+    }
 }
 
 
 const tower = new Level('tower', 5, '1010111111011100101001110');
 
-const board1 = new Board(this, tower.size, tower.topNums, tower.leftNums);
 
-console.log(board1);
+class Game {
+    constructor() {
+        this.currentIdx = 0;
+        this.levels = [
+           tower,
+        ];
+        this.boards = [];
+        this.currentLevel = this.levels[this.currentIdx];
+        this.currentBoard = this.createNewBoard();
+        this.boards.push(this.currentBoard);
+        this.boardDiv = document.querySelector(".board");
+        this.boardDiv.addEventListener('click', () => this.update());
+        this.mouseMode = 'cursor';
+    }
 
-board1.render();
+    isLevelWon(board) {
+        if (this.currentLevel.valueString === board.findCurrentVals()) {
+            this.currentLevel.won = true;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    createNewBoard() {
+        let b = new Board(this, this.currentLevel.size, this.currentLevel.topNums, this.currentLevel.leftNums);
+        return b;
+    }
 
+    update() {
+        // let level_msg = document.getElementById('level-msg');
+        // let time_msg = document.getElementById('time-msg');
 
+        if (this.isLevelWon(this.currentBoard)) {
+            this.currentLevel.revealPicture();
+        }
+    }
+
+    play() {
+        this.currentBoard.render();
+    }
+}
+
+ const g = new Game();
+    g.play();
 

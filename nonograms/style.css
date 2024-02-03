@@ -39,7 +39,7 @@ body {
 }
 
 .middle-part {
-  width: 100%;
+  width: 800px;
   display: flex;
   justify-content: space-between;
 }
@@ -151,7 +151,7 @@ label {
                 height: 2rem;
                 border: 1px outset black;
                 &:hover {
-                    filter: brightness(120%);
+                    filter: brightness(150%);
                 }
                 &:nth-child(5n + 0) {
                     border-right: 3px solid black;
@@ -179,6 +179,7 @@ label {
 @media screen and (max-width: 770px) {
     
     .middle-part {
+        width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
