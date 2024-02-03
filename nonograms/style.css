@@ -175,3 +175,21 @@ label {
         }
     }
 }
+
+@media screen and (max-width: 770px) {
+    
+    .middle-part {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .middle-left-part {
+        width: fit-content;
+    }
+
+    .middle-right-part {
+        width: fit-content;
+    }
+    
+}

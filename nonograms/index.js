@@ -60,6 +60,11 @@ board.classList.add("board");
 board.innerHTML = "Place for a board"
 boardWrapper.appendChild(board);
 
+const solutionBtn = document.createElement("button");
+solutionBtn.classList.add("solution");
+solutionBtn.innerText = "Show Solution";
+boardWrapper.appendChild(solutionBtn);
+
 const middleRightPart = document.createElement("div");
 middleRightPart.classList.add("middle-right-part");
 middlePart.appendChild(middleRightPart);
@@ -83,10 +88,6 @@ const lowerPart = document.createElement("div");
 lowerPart.classList.add("lower-part");
 container.appendChild(lowerPart);
 
-const solutionBtn = document.createElement("button");
-solutionBtn.classList.add("solution");
-solutionBtn.innerText = "Show Solution";
-lowerPart.appendChild(solutionBtn);
 
 
 class Square {
@@ -336,6 +337,7 @@ const board1 = new Board(this, tower.size, tower.topNums, tower.leftNums);
 console.log(board1);
 
 board1.render();
+
 
 
 
