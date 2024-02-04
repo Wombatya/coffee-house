@@ -209,7 +209,33 @@ label {
     text-align: center;
 }
 
-.modal-levels
+.modal-levels {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+}
+
+.modal-levels.active {
+    display: block;
+}
+
+.modal-levels-content {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 40%;
+    background: #FFF047;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: space-around;
+    align-items: center;
+}
 
 @media screen and (max-width: 770px) {
     

@@ -405,22 +405,23 @@ const levelsModal = document.createElement("div");
 levelsModal.classList.add("modal-levels");
 document.body.appendChild(levelsModal);
 
-const endModalContent = document.createElement("div");
-endModalContent.classList.add("modal-end-content");
-endModal.appendChild(endModalContent);
+const levelsModalContent = document.createElement("div");
+levelsModalContent.classList.add("modal-levels-content");
+levelsModal.appendChild(levelsModalContent);
 
-const resultsBtn = document.createElement("button");
-resultsBtn.classList.add("results");
-resultsBtn.innerText = "See the Results";
-endModalContent.appendChild(resultsBtn);
-const resultsBtn = document.createElement("button");
-resultsBtn.classList.add("results");
-resultsBtn.innerText = "See the Results";
-endModalContent.appendChild(resultsBtn);
-const resultsBtn = document.createElement("button");
-resultsBtn.classList.add("results");
-resultsBtn.innerText = "See the Results";
-endModalContent.appendChild(resultsBtn);
+const fivesBtn = document.createElement("button");
+fivesBtn.innerText = "5x5";
+levelsModalContent.appendChild(fivesBtn);
+
+const tensBtn = document.createElement("button");
+tensBtn.innerText = "10x10";
+levelsModalContent.appendChild(tensBtn);
+
+const fifteensBtn = document.createElement("button");
+fifteensBtn.innerText = "15x15";
+levelsModalContent.appendChild(fifteensBtn);
+
+levelsBtn.addEventListener('click', () => levelsModal.classList.add("active"))
 
 
 
