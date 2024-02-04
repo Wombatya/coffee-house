@@ -649,3 +649,12 @@ homeBtn.addEventListener('click', () => {
     const g = new Game();
     g.play();
 })
+
+randomBtn.addEventListener('click', randomGame);
+
+function randomGame() {
+    let random = Math.floor(Math.random() * (14 - 0 + 1)) + 0;
+    currentIdx = random;
+    const g = new Game();
+    g.play();
+}
