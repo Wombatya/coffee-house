@@ -327,12 +327,17 @@ const snowflake = new Level("snowflake", 5, "1010101110110110111010101");
 const airplane = new Level("airplane", 5, "0010001110111110010001110");
 const skull = new Level("skull", 5, "0111011111101011111101010");
 const hourglass = new Level("hourglass", 5, "1111101110001000101011111");
+const tree = new Level("tree", 10, "0011111100011110111011111011111101110011111011111001111100000000111000000011000001001100011111111111");
+const coffee = new Level("coffee", 10, "0010101000001010100000000000000111111100011011111101101111010111111110011111110010111110010111111110");
+const tv = new Level("tv", 10, "0010000100000100100011111111111011000011111000000110100000011110000001111100001111111111110100000010");
+const leaf = new Level("leaf", 10, "0000111111000101010100110101100101011010010101111001011000100111111110001000010001011110001100000000");
+const music = new Level("music", 10, "0000001111000111000100010001110001111001000100000100010001110111001111111100111111110001100110000000");
 
 currentIdx = 0;
 
 class Game {
   constructor() {
-    this.levels = [tower, snowflake, airplane, skull, hourglass];
+    this.levels = [tower, snowflake, airplane, skull, hourglass, tree, coffee, tv, leaf, music];
     this.boards = [];
     this.currentLevel = this.levels[currentIdx];
     this.currentBoard = this.createNewBoard();
@@ -364,7 +369,8 @@ class Game {
 
   update() {
     if (this.isLevelWon(this.currentBoard)) {
-      this.currentLevel.revealPicture();
+        setTimeout(
+      this.currentLevel.revealPicture, 500);
     }
   }
 
@@ -461,7 +467,7 @@ function showFives() {
 function hideModals() {
     levelsModal.classList.remove("active");
     fivesModal.classList.remove("active");
-
+    tensModal.classList.remove("active");
 }
 
 towerBtn.addEventListener('click', () => {
@@ -495,6 +501,76 @@ skullBtn.addEventListener('click', () => {
 hourglassBtn.addEventListener('click', () => {
     hideModals();
     currentIdx = 4;
+    const g = new Game();
+    g.play();
+})
+
+const tensModal = document.createElement("div");
+tensModal.classList.add("modal-tens");
+document.body.appendChild(tensModal);
+
+const tensModalContent = document.createElement("div");
+tensModalContent.classList.add("modal-tens-content");
+tensModal.appendChild(tensModalContent);
+
+const treeBtn = document.createElement("button");
+treeBtn.innerText = "Tree";
+tensModalContent.appendChild(treeBtn);
+
+const coffeeBtn = document.createElement("button");
+coffeeBtn.innerText = "Coffee";
+tensModalContent.appendChild(coffeeBtn);
+
+const tvBtn = document.createElement("button");
+tvBtn.innerText = "TV";
+tensModalContent.appendChild(tvBtn);
+
+const leafBtn = document.createElement("button");
+leafBtn.innerText = "Leaf";
+tensModalContent.appendChild(leafBtn);
+
+const musicBtn = document.createElement("button");
+musicBtn.innerText = "Music";
+tensModalContent.appendChild(musicBtn);
+
+tensBtn.addEventListener('click', showTens);
+
+function showTens() {
+    hideModals()
+    tensModal.classList.add("active");
+}
+
+treeBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 5;
+    const g = new Game();
+    g.play();
+})
+
+coffeeBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 6;
+    const g = new Game();
+    g.play();
+})
+
+tvBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 7;
+    const g = new Game();
+    g.play();
+})
+
+leafBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 8;
+    const g = new Game();
+    g.play();
+})
+
+musicBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 9;
     const g = new Game();
     g.play();
 })
