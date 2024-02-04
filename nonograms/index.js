@@ -328,16 +328,24 @@ class Level {
 
 
 const tower = new Level('tower', 5, '1010111111011100101001110');
+const snowflake = new Level('snowflake', 5, '1010101110110110111010101');
+const airplane = new Level('airplane', 5, '0010001110111110010001110');
+const skull = new Level('skull', 5, '0111011111101011111101010');
+const hourglass = new Level('hourglass', 5, '1111101110001000101011111');
 
+currentIdx = 0;
 
 class Game {
     constructor() {
-        this.currentIdx = 0;
         this.levels = [
            tower,
+           snowflake,
+           airplane,
+           skull,
+           hourglass,
         ];
         this.boards = [];
-        this.currentLevel = this.levels[this.currentIdx];
+        this.currentLevel = this.levels[currentIdx];
         this.currentBoard = this.createNewBoard();
         this.boards.push(this.currentBoard);
         this.boardDiv = document.querySelector(".board");
@@ -373,3 +381,10 @@ class Game {
  const g = new Game();
     g.play();
 
+
+    resetBtn.addEventListener('click', resetGame);
+
+    function resetGame() {
+        const g = new Game();
+        g.play();
+    }
