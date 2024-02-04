@@ -360,9 +360,6 @@ class Game {
     }
 
     update() {
-        // let level_msg = document.getElementById('level-msg');
-        // let time_msg = document.getElementById('time-msg');
-
         if (this.isLevelWon(this.currentBoard)) {
             this.currentLevel.revealPicture();
         }

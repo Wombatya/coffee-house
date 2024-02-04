@@ -167,8 +167,8 @@ label {
                 background-color: #484632;
             }
             .exed {
-                background-color: aquamarine;
-                background-image: url(../../images/X.png);
+                background-color: #FFFABA;
+                background-image: url(../nonograms/img/cross.png);
                 background-position: center;
                 background-size: cover;
             }
