@@ -421,7 +421,80 @@ const fifteensBtn = document.createElement("button");
 fifteensBtn.innerText = "15x15";
 levelsModalContent.appendChild(fifteensBtn);
 
-levelsBtn.addEventListener('click', () => levelsModal.classList.add("active"))
+levelsBtn.addEventListener('click', () => levelsModal.classList.add("active"));
 
+const fivesModal = document.createElement("div");
+fivesModal.classList.add("modal-fives");
+document.body.appendChild(fivesModal);
 
+const fivesModalContent = document.createElement("div");
+fivesModalContent.classList.add("modal-fives-content");
+fivesModal.appendChild(fivesModalContent);
 
+const towerBtn = document.createElement("button");
+towerBtn.innerText = "Tower";
+fivesModalContent.appendChild(towerBtn);
+
+const snowflakeBtn = document.createElement("button");
+snowflakeBtn.innerText = "Snowflake";
+fivesModalContent.appendChild(snowflakeBtn);
+
+const airplaneBtn = document.createElement("button");
+airplaneBtn.innerText = "Airplane";
+fivesModalContent.appendChild(airplaneBtn);
+
+const skullBtn = document.createElement("button");
+skullBtn.innerText = "Skull";
+fivesModalContent.appendChild(skullBtn);
+
+const hourglassBtn = document.createElement("button");
+hourglassBtn.innerText = "Hourglass";
+fivesModalContent.appendChild(hourglassBtn);
+
+fivesBtn.addEventListener('click', showFives);
+
+function showFives() {
+    hideModals()
+    fivesModal.classList.add("active");
+}
+
+function hideModals() {
+    levelsModal.classList.remove("active");
+    fivesModal.classList.remove("active");
+
+}
+
+towerBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 0;
+    const g = new Game();
+    g.play();
+})
+
+snowflakeBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 1;
+    const g = new Game();
+    g.play();
+})
+
+airplaneBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 2;
+    const g = new Game();
+    g.play();
+})
+
+skullBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 3;
+    const g = new Game();
+    g.play();
+})
+
+hourglassBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 4;
+    const g = new Game();
+    g.play();
+})
