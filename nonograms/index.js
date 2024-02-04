@@ -332,12 +332,16 @@ const coffee = new Level("coffee", 10, "0010101000001010100000000000000111111100
 const tv = new Level("tv", 10, "0010000100000100100011111111111011000011111000000110100000011110000001111100001111111111110100000010");
 const leaf = new Level("leaf", 10, "0000111111000101010100110101100101011010010101111001011000100111111110001000010001011110001100000000");
 const music = new Level("music", 10, "0000001111000111000100010001110001111001000100000100010001110111001111111100111111110001100110000000");
-
+const flower = new Level("flower", 15, "000110110000000000100011111000011100001001100110011100000100100001101001100111010000111000011100100010000001001110010000001111111110010110011011000001111001010011111101001110111111011100100111011001111101110110000001110011100");
+const turtle = new Level("turtle", 15, "001011001100001001111101110000001011000110000000000000011000110011110011000111111011110000001111101110110011111111111111001111111110110111111111110000110011110111000000000000011010101100000110011111110001110010101100001100000");
+const deer = new Level("deer", 15, "110110000001101110110100101101011110100101101001111100011111000011011111000000000111111100000001010111110000011111111111000111111111111001111111111111011111111011111010111000011111011111000011111001110000111111000000000111111");
+const duck = new Level("duck", 15, "000000000111000000000001111100000000011110111000000011111110000000001111100000000000111000000000001111100100000111111110111001110001110111111101110110011111011110110011111111001100001111111111000000011011100000000000111111000");
+const home = new Level("home", 15, "000000000000001000000000001100000010000000000000011000110000000010000110000000111111111000001111101010100011111110101010111111111111111010000000000010010111000011010010111011011010010000011000010010000011000010111111111111111");
 currentIdx = 0;
 
 class Game {
   constructor() {
-    this.levels = [tower, snowflake, airplane, skull, hourglass, tree, coffee, tv, leaf, music];
+    this.levels = [tower, snowflake, airplane, skull, hourglass, tree, coffee, tv, leaf, music, flower, turtle, deer, duck, home];
     this.boards = [];
     this.currentLevel = this.levels[currentIdx];
     this.currentBoard = this.createNewBoard();
@@ -468,6 +472,7 @@ function hideModals() {
     levelsModal.classList.remove("active");
     fivesModal.classList.remove("active");
     tensModal.classList.remove("active");
+    fifteensModal.classList.remove("active");
 }
 
 towerBtn.addEventListener('click', () => {
@@ -571,6 +576,76 @@ leafBtn.addEventListener('click', () => {
 musicBtn.addEventListener('click', () => {
     hideModals();
     currentIdx = 9;
+    const g = new Game();
+    g.play();
+})
+
+const fifteensModal = document.createElement("div");
+fifteensModal.classList.add("modal-fifteens");
+document.body.appendChild(fifteensModal);
+
+const fifteensModalContent = document.createElement("div");
+fifteensModalContent.classList.add("modal-fifteens-content");
+fifteensModal.appendChild(fifteensModalContent);
+
+const flowerBtn = document.createElement("button");
+flowerBtn.innerText = "Flower";
+fifteensModalContent.appendChild(flowerBtn);
+
+const turtleBtn = document.createElement("button");
+turtleBtn.innerText = "Turtle";
+fifteensModalContent.appendChild(turtleBtn);
+
+const deerBtn = document.createElement("button");
+deerBtn.innerText = "Deer";
+fifteensModalContent.appendChild(deerBtn);
+
+const duckBtn = document.createElement("button");
+duckBtn.innerText = "Duck";
+fifteensModalContent.appendChild(duckBtn);
+
+const homeBtn = document.createElement("button");
+homeBtn.innerText = "Home";
+fifteensModalContent.appendChild(homeBtn);
+
+fifteensBtn.addEventListener('click', showFifteens);
+
+function showFifteens() {
+    hideModals()
+    fifteensModal.classList.add("active");
+}
+
+flowerBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 10;
+    const g = new Game();
+    g.play();
+})
+
+turtleBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 11;
+    const g = new Game();
+    g.play();
+})
+
+deerBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 12;
+    const g = new Game();
+    g.play();
+})
+
+duckBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 13;
+    const g = new Game();
+    g.play();
+})
+
+homeBtn.addEventListener('click', () => {
+    hideModals();
+    currentIdx = 14;
     const g = new Game();
     g.play();
 })
