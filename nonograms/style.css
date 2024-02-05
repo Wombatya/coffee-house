@@ -9,7 +9,6 @@
  }
 
 body {
-  background-color: #FFF047;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,12 +16,18 @@ body {
 }
 
 .container {
+    background-color: #FFF047;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     min-height: 100vh;
+}
+
+.container.dark {
+    background-color: #0A0236;
+    color: #FFFFFF;
 }
 
 .upper-part {
@@ -86,6 +91,12 @@ button:hover {
     filter: brightness(0.5);
 }
 
+button.dark {
+    border: 1px solid #32218F;
+    background-color:#32218F;
+    color: #FFFFFF ;
+}
+
 label {
     margin: 0 10px;
 }
@@ -123,6 +134,9 @@ label {
             border: 1px solid transparent;
         }
     }
+    .topNums.dark {
+        color: #FFFFFF;
+    }
     .leftNums {
         color: #000000;
         position: absolute;
@@ -137,6 +151,9 @@ label {
             padding: 0.35rem 0.2rem;
             border: 1px solid transparent;
         }
+    }
+    .leftNums.dark {
+        color: #FFFFFF;
     }
     .grid {
         border: 2px solid black;
@@ -164,6 +181,9 @@ label {
                     border-right: 1px outset black;
                 }
             }
+            .square.dark {
+                border: 1px outset white;
+            }
             .unclicked {
                 background-color: #FFFABA;
             }
@@ -172,6 +192,33 @@ label {
             }
             .exed {
                 background-color: #FFFABA;
+                background-image: url(../nonograms/img/cross.png);
+                background-position: center;
+                background-size: cover;
+            }
+        }
+    }
+    .grid.dark {
+        border: 2px solid white;
+        .row-div {
+            &:nth-child(5n + 0) {
+                border-bottom: 2px solid black;
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+            display: flex;
+            .square {
+                border: 1px outset white;
+            }
+            .unclicked {
+                background-color: #01000A;
+            }
+            .filled {
+                background-color: #E5E4E7;
+            }
+            .exed {
+                background-color: #01000A;
                 background-image: url(../nonograms/img/cross.png);
                 background-position: center;
                 background-size: cover;
@@ -208,9 +255,17 @@ label {
     align-items: center;
 }
 
+.modal-end-content.dark {
+    background: #0A0236;
+}
+
 .modal-end-text {
     margin: 15px;
     text-align: center;
+}
+
+.modal-end-text.dark {
+    color: #FFFFFF;
 }
 
 .modal-levels {
@@ -224,6 +279,7 @@ label {
 .modal-levels.active {
     display: block;
 }
+
 
 .modal-levels-content {
     display: flex;
@@ -239,6 +295,10 @@ label {
     transform: translate(-50%, -50%);
     justify-content: space-around;
     align-items: center;
+}
+
+.modal-levels-content.dark {
+    background: #0A0236;
 }
 
 .modal-fives {
@@ -269,6 +329,10 @@ label {
     align-items: center;
 }
 
+.modal-fives-content.dark {
+    background: #0A0236;
+}
+
 .modal-tens {
     position: absolute;
     width: 100%;
@@ -297,6 +361,10 @@ label {
     align-items: center;
 }
 
+.modal-tens-content.dark {
+    background: #0A0236;
+}
+
 .modal-fifteens {
     position: absolute;
     width: 100%;
@@ -323,6 +391,10 @@ label {
     transform: translate(-50%, -50%);
     justify-content: space-around;
     align-items: center; 
+}
+
+.modal-fifteens-content.dark {
+    background: #0A0236;
 }
 
 @media screen and (max-width: 949px) {
