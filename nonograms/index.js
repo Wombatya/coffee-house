@@ -3,6 +3,10 @@ let seconds = 0;
 let minutes = 0;
 let hours = 0;  
 let isTimerOn = false;
+const winSound = new Audio('./sounds/victory.mp3');
+const exedSound = new Audio('./sounds/exed.mp3');
+const filledSound = new Audio('./sounds/filled.mp3');
+const unclickedSound = new Audio('./sounds/unclicked.mp3');
 
 const container = document.createElement("div");
 container.classList.add("container");
@@ -112,9 +116,11 @@ class Square {
         if (this.status === "filled") {
           this.status = "unclicked";
           this.value = 0;
+          unclickedSound.play();
         } else {
           this.status = "filled";
           this.value = 1;
+          filledSound.play();
         }
         break;
       }
@@ -139,9 +145,11 @@ class Square {
     if (this.status === "exed") {
       this.status = "unclicked";
       this.value = 0;
+      unclickedSound.play();
     } else {
       this.status = "exed";
       this.value = 0;
+      exedSound.play();
     }
     this.render();
     return;
@@ -334,6 +342,7 @@ class Level {
   revealPicture() {
     let pic = document.querySelector(".board");
     clearInterval(interval);
+    winSound.play();
     endModalText.innerText =
   `Great!\n You have solved\n the nonogram\n in ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     endModal.classList.add("active");
@@ -843,4 +852,6 @@ squares.forEach((square) => {
 }
 
 startTimer();
+
+
 
