@@ -20,6 +20,20 @@ const upperWrapper = document.createElement("div");
 upperWrapper.classList.add("upper-wrapper");
 upperPart.appendChild(upperWrapper);
 
+const soundWrapper = document.createElement("div");
+soundWrapper.classList.add("sound-wrapper");
+upperWrapper.appendChild(soundWrapper)
+
+const soundOn = document.createElement("img");
+soundOn.src = '../nonograms/img/sound-on.png';
+soundOn.classList.add("sound-on-icon")
+soundWrapper.appendChild(soundOn);
+
+const soundOff = document.createElement("img");
+soundOff.src = '../nonograms/img/sound-off.png';
+soundOff.classList.add("sound-off-icon")
+soundWrapper.appendChild(soundOff);
+
 const timer = document.createElement("div");
 timer.classList.add("timer");
 timer.innerHTML = "00:00:00";
@@ -853,5 +867,21 @@ squares.forEach((square) => {
 
 startTimer();
 
-
-
+soundWrapper.addEventListener('click', () => {
+    if (exedSound.muted) {
+        winSound.muted = false;
+        exedSound.muted = false;
+        unclickedSound.muted = false;
+        filledSound.muted = false;
+        soundOn.classList.remove("nonactive");
+        soundOff.classList.remove("active");
+    }
+    else {
+        winSound.muted = true;
+        exedSound.muted = true;
+        unclickedSound.muted = true;
+        filledSound.muted = true;
+        soundOn.classList.add("nonactive");
+        soundOff.classList.add("active");
+    }
+})

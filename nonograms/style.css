@@ -40,7 +40,7 @@ body {
 .upper-wrapper {
   display: flex;
   justify-content: space-between;
-  width: 53%;
+  width: 100%;
 }
 
 .middle-part {
@@ -100,6 +100,35 @@ button.dark {
 label {
     margin: 0 10px;
 }
+
+.sound-wrapper {
+    margin: 0 45px;
+    cursor: pointer;
+}
+
+.sound-on-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.sound-on-icon.nonactive {
+    display: none;
+}
+
+.sound-off-icon {
+    width: 32px;
+    height: 32px;
+    display: none;
+}
+
+.sound-off-icon.active {
+    display: block;
+}
+
+
+
+
+
 
 .board-wrapper { 
     width: 100%;
