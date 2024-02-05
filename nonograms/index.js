@@ -1,3 +1,9 @@
+let interval;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;  
+let isTimerOn = false;
+
 const container = document.createElement("div");
 container.classList.add("container");
 document.body.appendChild(container);
@@ -12,7 +18,7 @@ upperPart.appendChild(upperWrapper);
 
 const timer = document.createElement("div");
 timer.classList.add("timer");
-timer.innerHTML = "XX : XX";
+timer.innerHTML = "00:00:00";
 upperWrapper.appendChild(timer);
 
 const darkTheme = document.createElement("div");
@@ -327,8 +333,9 @@ class Level {
 
   revealPicture() {
     let pic = document.querySelector(".board");
-    // (`${this.name}`);
-    // pic.className = 'solved';
+    clearInterval(interval);
+    endModalText.innerText =
+  `Great!\n You have solved\n the nonogram\n in ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     endModal.classList.add("active");
     if(checkbox.checked) {
         endModalContent.classList.add("dark");
@@ -480,8 +487,6 @@ if(checkbox.checked) {
 } else {
     endModalText.classList.remove("dark");
 }
-endModalText.innerText =
-  "Great!\n You have solved\n the nonogram\n in xx seconds";
 endModalContent.appendChild(endModalText);
 
 const resultsBtn = document.createElement("button");
@@ -516,6 +521,12 @@ levelsBtn.addEventListener("click", () => {
     } else {
         levelsModalContent.classList.remove("dark");
     }
+    clearInterval(interval);
+  seconds = 0;
+  minutes = 0;
+  hours = 0;
+  timer.textContent = '00:00:00';
+  isTimerOn = false;
 });
 
 const fivesModal = document.createElement("div");
@@ -570,6 +581,7 @@ towerBtn.addEventListener("click", () => {
   currentIdx = 0;
   const g = new Game();
   g.play();
+  startTimer()
 });
 
 snowflakeBtn.addEventListener("click", () => {
@@ -577,6 +589,7 @@ snowflakeBtn.addEventListener("click", () => {
   currentIdx = 1;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 airplaneBtn.addEventListener("click", () => {
@@ -584,6 +597,7 @@ airplaneBtn.addEventListener("click", () => {
   currentIdx = 2;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 skullBtn.addEventListener("click", () => {
@@ -591,6 +605,7 @@ skullBtn.addEventListener("click", () => {
   currentIdx = 3;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 hourglassBtn.addEventListener("click", () => {
@@ -598,6 +613,7 @@ hourglassBtn.addEventListener("click", () => {
   currentIdx = 4;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 const tensModal = document.createElement("div");
@@ -645,6 +661,7 @@ treeBtn.addEventListener("click", () => {
   currentIdx = 5;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 coffeeBtn.addEventListener("click", () => {
@@ -652,6 +669,7 @@ coffeeBtn.addEventListener("click", () => {
   currentIdx = 6;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 tvBtn.addEventListener("click", () => {
@@ -659,6 +677,7 @@ tvBtn.addEventListener("click", () => {
   currentIdx = 7;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 leafBtn.addEventListener("click", () => {
@@ -666,6 +685,7 @@ leafBtn.addEventListener("click", () => {
   currentIdx = 8;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 musicBtn.addEventListener("click", () => {
@@ -673,6 +693,7 @@ musicBtn.addEventListener("click", () => {
   currentIdx = 9;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 const fifteensModal = document.createElement("div");
@@ -720,6 +741,7 @@ flowerBtn.addEventListener("click", () => {
   currentIdx = 10;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 turtleBtn.addEventListener("click", () => {
@@ -727,6 +749,7 @@ turtleBtn.addEventListener("click", () => {
   currentIdx = 11;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 deerBtn.addEventListener("click", () => {
@@ -734,6 +757,7 @@ deerBtn.addEventListener("click", () => {
   currentIdx = 12;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 duckBtn.addEventListener("click", () => {
@@ -741,6 +765,7 @@ duckBtn.addEventListener("click", () => {
   currentIdx = 13;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 homeBtn.addEventListener("click", () => {
@@ -748,6 +773,7 @@ homeBtn.addEventListener("click", () => {
   currentIdx = 14;
   const g = new Game();
   g.play();
+  startTimer();
 });
 
 randomBtn.addEventListener("click", randomGame);
@@ -755,9 +781,18 @@ randomBtn.addEventListener("click", randomGame);
 function randomGame() {
   let random = Math.floor(Math.random() * (14 - 0 + 1)) + 0;
   currentIdx = random;
+  clearInterval(interval);
+  seconds = 0;
+  minutes = 0;
+  hours = 0;
+  timer.textContent = '00:00:00';
+  isTimerOn = false;
   const g = new Game();
   g.play();
+  startTimer()
 }
+
+
 
 checkbox.addEventListener("click", () => {
   const buttons = document.querySelectorAll("button");
@@ -781,3 +816,31 @@ checkbox.addEventListener("click", () => {
     squares.forEach((square) => square.classList.remove("dark"));
   }
 });
+
+function updateTime() {
+  seconds++;
+  if (seconds === 60) {
+    minutes++;
+    seconds = 0;
+  }
+  if (minutes === 60) {
+    hours++;
+    minutes = 0;
+  }
+  timer.innerHTML = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+function startTimer() {
+let squares = document.querySelectorAll(".square")
+squares.forEach((square) => {
+    square.addEventListener('click', () => {
+    if(!(isTimerOn)) {
+    isTimerOn = true;
+    interval = setInterval(updateTime, 1000);
+    };
+})
+})
+}
+
+startTimer();
+
