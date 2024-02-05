@@ -3,6 +3,10 @@ let seconds = 0;
 let minutes = 0;
 let hours = 0;  
 let isTimerOn = false;
+const winSound = new Audio('./sounds/victory.mp3');
+const exedSound = new Audio('./sounds/exed.mp3');
+const filledSound = new Audio('./sounds/filled.mp3');
+const unclickedSound = new Audio('./sounds/unclicked.mp3');
 
 const container = document.createElement("div");
 container.classList.add("container");
@@ -15,6 +19,20 @@ container.appendChild(upperPart);
 const upperWrapper = document.createElement("div");
 upperWrapper.classList.add("upper-wrapper");
 upperPart.appendChild(upperWrapper);
+
+const soundWrapper = document.createElement("div");
+soundWrapper.classList.add("sound-wrapper");
+upperWrapper.appendChild(soundWrapper)
+
+const soundOn = document.createElement("img");
+soundOn.src = '../nonograms/img/sound-on.png';
+soundOn.classList.add("sound-on-icon")
+soundWrapper.appendChild(soundOn);
+
+const soundOff = document.createElement("img");
+soundOff.src = '../nonograms/img/sound-off.png';
+soundOff.classList.add("sound-off-icon")
+soundWrapper.appendChild(soundOff);
 
 const timer = document.createElement("div");
 timer.classList.add("timer");
@@ -112,9 +130,11 @@ class Square {
         if (this.status === "filled") {
           this.status = "unclicked";
           this.value = 0;
+          unclickedSound.play();
         } else {
           this.status = "filled";
           this.value = 1;
+          filledSound.play();
         }
         break;
       }
@@ -139,9 +159,11 @@ class Square {
     if (this.status === "exed") {
       this.status = "unclicked";
       this.value = 0;
+      unclickedSound.play();
     } else {
       this.status = "exed";
       this.value = 0;
+      exedSound.play();
     }
     this.render();
     return;
@@ -334,6 +356,7 @@ class Level {
   revealPicture() {
     let pic = document.querySelector(".board");
     clearInterval(interval);
+    winSound.play();
     endModalText.innerText =
   `Great!\n You have solved\n the nonogram\n in ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     endModal.classList.add("active");
@@ -844,3 +867,21 @@ squares.forEach((square) => {
 
 startTimer();
 
+soundWrapper.addEventListener('click', () => {
+    if (exedSound.muted) {
+        winSound.muted = false;
+        exedSound.muted = false;
+        unclickedSound.muted = false;
+        filledSound.muted = false;
+        soundOn.classList.remove("nonactive");
+        soundOff.classList.remove("active");
+    }
+    else {
+        winSound.muted = true;
+        exedSound.muted = true;
+        unclickedSound.muted = true;
+        filledSound.muted = true;
+        soundOn.classList.add("nonactive");
+        soundOff.classList.add("active");
+    }
+})
