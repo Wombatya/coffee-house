@@ -12,4 +12,6 @@ Here is a collection of badges I earned from completing Microsoft Learn's TypeSc
 
 4. **Develop Typed Functions in TypeScript**: [Badge](https://learn.microsoft.com/api/achievements/share/en-us/NadezhdaKwombatya-1532/HY6SLGQ8?sharingId=853D55E1A6CB3518);
 
-5. 
+5. **Declare and Instantiate Classes in TypeScript**: [Badge](https://learn.microsoft.com/api/achievements/share/ru-ru/NadezhdaKwombatya-1532/AQNHWAX7?sharingId=853D55E1A6CB3518);
+
+6. 
