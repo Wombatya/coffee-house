@@ -16,3 +16,5 @@ Here is a collection of badges I earned from completing Microsoft Learn's TypeSc
 
 6. **Generics in TypeScript**: [Badge](https://learn.microsoft.com/api/achievements/share/en-us/NadezhdaKwombatya-1532/AQNYXGG7?sharingId=853D55E1A6CB3518);
 
+7. **Work with External Libraries in TypeScript**: [Badge](https://learn.microsoft.com/api/achievements/share/en-us/NadezhdaKwombatya-1532/DGEB5LNJ?sharingId=853D55E1A6CB3518);
+
