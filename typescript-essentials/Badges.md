@@ -18,3 +18,4 @@ Here is a collection of badges I earned from completing Microsoft Learn's TypeSc
 
 7. **Work with External Libraries in TypeScript**: [Badge](https://learn.microsoft.com/api/achievements/share/en-us/NadezhdaKwombatya-1532/DGEB5LNJ?sharingId=853D55E1A6CB3518);
 
+8. **Organize Code with Namespaces in TypeScript**: [Badge](https://learn.microsoft.com/api/achievements/share/en-us/NadezhdaKwombatya-1532/CWS67CY9?sharingId=853D55E1A6CB3518) and [Badge](https://learn.microsoft.com/api/achievements/share/en-us/NadezhdaKwombatya-1532/FZ3N4FMX?sharingId=853D55E1A6CB3518);
